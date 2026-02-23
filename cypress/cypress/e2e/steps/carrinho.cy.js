@@ -40,13 +40,13 @@ describe('Carrinho',()=>{
           .and('have.text',1)
 
           cy.get('.cart-item > .btn').click()
-          cy.screenshot('Carrinho com produtos')
+        //  cy.screenshot('Carrinho com produtos')
     })     
     
 
      it('Adicionar produto ao carrinho remover produtos',()=>{                 
                                     
-         cy.screenshot('Carrinho sem produtos')
+       //  cy.screenshot('Carrinho sem produtos')
 
         cy.get(':nth-child(1) > .nav-link').click()
     })
