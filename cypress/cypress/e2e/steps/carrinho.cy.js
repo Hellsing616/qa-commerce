@@ -11,7 +11,7 @@ describe('Carrinho',()=>{
 
            carrinho.clickBtnCarrinho()
     
-           //carrinho.validarCamposDadosCompra()
+           carrinho.validarCamposDadosCompra()
 
          //  carrinho.validarCamposValorProduto()  
         

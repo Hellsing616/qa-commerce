@@ -24,9 +24,9 @@ class Carrinho{
 
     validarCamposValorProduto(){
         //Campos de validacao
-        cy.get().should('Valor total + Frete fixo: R$68.90')
-        cy.get().should('Preço: R$49.00')
-        cy.get()//total
+        cy.get(el.txtPreco)
+        cy.get(el.txtQtdoUnitario)
+        cy.get(el.txtvalorTotal)
     }
     
     //'Quantidade: 1'
