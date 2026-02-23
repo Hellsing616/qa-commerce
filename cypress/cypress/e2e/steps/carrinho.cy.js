@@ -15,6 +15,10 @@ describe('Carrinho',()=>{
         cy.get('.cart-item > :nth-child(4)')//total
        
         //Assert
+
+        
+        cy.contains('Moletom com capuz "Na minha máquina funciona').should('be.visible')
+
         cy.get('#total-products')//vaor total
         cy.get('#shipping-fee') //frete
         cy.get('#total-with-shipping')// valor total + frte
@@ -23,7 +27,9 @@ describe('Carrinho',()=>{
 
         cy.get('#cart-count')
           .should('be.visible')
-          .and('have.text',3)
+          .and('have.text',7)
+
+          cy.screenshot('Carrinho com produtos')
 
     })
 
@@ -48,6 +54,8 @@ describe('Carrinho',()=>{
         cy.url().should('eq', 'http://localhost:3000/cart.html')
        
         cy.get(':nth-child(1) > .btn').click()
+
+         cy.screenshot('Carrinho sem produtos')
 
         cy.get(':nth-child(1) > .nav-link').click()
     })
