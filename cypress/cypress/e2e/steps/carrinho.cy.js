@@ -1,13 +1,18 @@
-describe('Carrinho',()=>{
-        beforeEach(()=>{
-            //Arrange
-            cy.visit('http://localhost:3000')
+import carrinho from "../pages/carrinho"
 
-            //Act                  
+
+describe('Carrinho',()=>{
+
+        beforeEach(()=>{
+
+           carrinho.visitarPaginaHome()            
            
-        cy.get(':nth-child(4) > .card > .card-body > .btn').click()// adicionar carrinho
+           cy.get(':nth-child(4) > .card > .card-body > .btn').click()
+
+            cy.get(':nth-child(2) > .nav-link').click() 
+    
         
-        cy.get(':nth-child(2) > .nav-link').click() //carrinho
+        
 
         //Campos de validacao
         cy.get('.cart-item > :nth-child(2)')//preço
@@ -25,21 +30,21 @@ describe('Carrinho',()=>{
 
         cy.url().should('eq', 'http://localhost:3000/cart.html')
 
-        
+        }   
+    )
 
     it('Adicionar produto ao carrinho com item',()=>{    
         
-            cy.get('#cart-count')
-            .should('be.visible')
-            .and('have.text',1)
-            })
-     
+        cy.get('#cart-count')
+          .should('be.visible')
+          .and('have.text',1)
+
           cy.get('.cart-item > .btn').click()
           cy.screenshot('Carrinho com produtos')
+    })     
+    
 
-    })
-
-     it.only('Adicionar produto ao carrinho remover produtos',()=>{                 
+     it('Adicionar produto ao carrinho remover produtos',()=>{                 
                                     
          cy.screenshot('Carrinho sem produtos')
 
