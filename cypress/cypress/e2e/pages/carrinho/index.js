@@ -20,6 +20,7 @@ class Carrinho{
     
    }
 
-
 }
+
+export default new Carrinho()
 
