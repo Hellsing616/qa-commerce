@@ -2,8 +2,8 @@ import { elements as el } from "./elements"
 
 class Carrinho{
 
-    visitarPaginaHome(){
-        cy.visit('http://localhost:3000')
+    visitarPaginaCarrinho(){
+        cy.visit('http://localhost:3000/cart.html')
     }
 
     clickBtnAdicionarCarrinho(){
@@ -28,17 +28,11 @@ class Carrinho{
         cy.get(el.txtQtdoUnitario)
         cy.get(el.txtvalorTotal)
     }
-    
-    //'Quantidade: 1'
-    //'Total: R$49.00'
-    //'Valor total do(s) Produto(s): R$49.00'
-    //'Frete: R$19.90'
-    //'Valor total + Frete fixo: R$68.90'
-
+       
     validarCamposDadosCompra(){
-        cy.get()//valor total
-        cy.get() //frete
-        cy.get()// valor total + frete
+        cy.get(el.txtValorTotalProduto)//valor total
+        cy.get(el.txtFrete) //frete
+        cy.get(el.txtValorTotalFrete)// valor total + frete
 
     }
 

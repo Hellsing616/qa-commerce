@@ -1,32 +1,32 @@
 import carrinho from "../pages/carrinho"
+import home from "../pages/home"
+import menu from "../pages/menu"
 
 
-describe('Carrinho',()=>{
+describe('Adicionar produto no carrinho',()=>{
 
         beforeEach(()=>{
 
-           carrinho.visitarPaginaHome()            
-           
-           carrinho.clickBtnAdicionarCarrinho()
+          menu.visitarHomePage()
+                  
+        }   
+    )
 
+    it.only('veriifcar produto no carrinhom',()=>{        
+      
+      
+
+
+          
            carrinho.clickBtnCarrinho()
     
            carrinho.validarCamposDadosCompra()
 
-         //  carrinho.validarCamposValorProduto()  
+           carrinho.validarCamposValorProduto()  
         
-           // cy.contains('Moletom com capuz "Na minha máquina funciona').should('be.visible')
-         //  cy.url().should('eq', 'http://localhost:3000/cart.html')
-
-        }   
-    )
-
-    it.only('Adicionar produto ao carrinho com item',()=>{    
-        
-       // carrinho.validarCampoQtdItnsProdutos()
-
-       // cy.get('.cart-item > .btn').click()
-        //  cy.screenshot('Carrinho com produtos')
+          cy.contains('Moletom "Testar é o único lugar onde falhar é realmente uma vitória!"').should('be.visible')
+          cy.url().should('eq', 'http://localhost:3000/cart.html')
+          //cy.screenshot('Carrinho com produtos')
     })     
     
 
