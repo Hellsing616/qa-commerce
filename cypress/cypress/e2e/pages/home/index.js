@@ -7,9 +7,10 @@ class Home {
         cy.get(el.adicionarCarrinho).click()
                       
     }
-      selecionarQtdProtudoCarrinho(){
+      
+    selecionarQtdProtudoCarrinho(){
         cy.get(el.selecionarQtdProduto).type('1')
-      }
+    }
 }
 
 export default new Home()

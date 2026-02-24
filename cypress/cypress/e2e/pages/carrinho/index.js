@@ -4,21 +4,44 @@ class Carrinho{
 
     visitarCarrinhoPage(){
         cy.visit('http://localhost:3000/cart.html')
-    }  
-           
-    validarCamposValorProduto(){
-        //Campos de validacao
-        cy.get(el.txtPreco)
-        cy.get(el.txtQtdoUnitario)
-        cy.get(el.txtvalorTotal)
+    }             
+      
+    campoNomeProduto(){
+      return  cy.get(el.txtNomeProduto)
     }
-       
-    validarCamposDadosCompra(){
-        cy.get(el.txtValorTotalProduto)//valor total
-        cy.get(el.txtFrete) //frete
-        cy.get(el.txtValorTotalFrete)// valor total + frete
+    
+    campoPreco(){
+      return  cy.get(el.txtPreco)
+    }
 
-    }  
+    campoQuantidade(){
+      return  cy.get(el.txtQtdoUnitario)
+    }
+
+    campoTotal(){
+      return  cy.get(el.txtvalorTotal)
+    }
+
+    campoValorTotalProduto(){
+      return  cy.get(el.txtValorTotalProduto)//valor total        
+    }
+
+    campoFrete(){
+       return cy.get(el.txtFrete) //frete
+    }
+
+    campoValorTotalFrete(){
+       return cy.get(el.txtValorTotalFrete)// valor total + frete
+    }
+
+    clickRemoverCompra(){
+        cy.get(el.remover).click()
+    }
+
+    clickIrCheckout(){
+        cy.get(el.ircheckout).click()
+    }
+
 }
 
 export default new Carrinho()

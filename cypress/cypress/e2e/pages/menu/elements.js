@@ -5,3 +5,4 @@ export const elements ={
     linkMinhaConta: '#account-link',
     quantidadeProdutosCesto: '#cart-count'
 }
+

@@ -7,15 +7,15 @@ class Menu{
     }
 
     clicarLinkHome(){
-        cy.get(el.linkHome).click
+        cy.get(el.linkHome).click()
     }
 
     clicarLinkCarrinho(){
-        cy.get(el.linkCarrinho).click
+        cy.get(el.linkCarrinho).click()
     }
     
     clicarLinkMinhaConta(){
-        cy.get(el.linkMinhaConta).click
+        cy.get(el.linkMinhaConta).click()
     }
 
       validarCampoQtdItnsProdutos(){
