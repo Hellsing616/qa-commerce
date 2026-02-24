@@ -2,26 +2,10 @@ import { elements as el } from "./elements"
 
 class Carrinho{
 
-    visitarPaginaCarrinho(){
+    visitarCarrinhoPage(){
         cy.visit('http://localhost:3000/cart.html')
-    }
-
-    clickBtnAdicionarCarrinho(){
-        cy.get(el.adicionarCarrinho).click()
-    }
-
-    clickBtnCarrinho(){
-        cy.get(el.carrinho).click() 
-    }
-
-    selecionarQtdProduto(){
-
-    }
-
-    limparCarrinho(){
-        
-    }
-
+    }  
+           
     validarCamposValorProduto(){
         //Campos de validacao
         cy.get(el.txtPreco)
@@ -34,14 +18,7 @@ class Carrinho{
         cy.get(el.txtFrete) //frete
         cy.get(el.txtValorTotalFrete)// valor total + frete
 
-    }
-
-    validarCampoQtdItnsProdutos(){
-         cy.get('#cart-count')
-          .should('be.visible')
-          .and('have.text',1)
-    }
-
+    }  
 }
 
 export default new Carrinho()

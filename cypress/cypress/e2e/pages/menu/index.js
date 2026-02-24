@@ -7,15 +7,21 @@ class Menu{
     }
 
     clicarLinkHome(){
-        cy.get(':nth-child(1) > .nav-link').click
+        cy.get(el.linkHome).click
     }
 
     clicarLinkCarrinho(){
-        cy.get(':nth-child(2) > .nav-link').click
+        cy.get(el.linkCarrinho).click
     }
     
     clicarLinkMinhaConta(){
-        cy.get('#account-link').click
+        cy.get(el.linkMinhaConta).click
+    }
+
+      validarCampoQtdItnsProdutos(){
+         cy.get(el.quantidadeProdutosCesto)
+          .should('be.visible')
+          .and('have.text',1)
     }
 }
 

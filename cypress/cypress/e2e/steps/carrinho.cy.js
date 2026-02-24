@@ -14,15 +14,13 @@ describe('Adicionar produto no carrinho',()=>{
 
     it.only('veriifcar produto no carrinhom',()=>{        
       
-      
-
-
+          home.clickBtnAdicionarCarrinho()
           
-           carrinho.clickBtnCarrinho()
-    
-           carrinho.validarCamposDadosCompra()
+          menu.clicarLinkCarrinho()
+                   
+          carrinho.validarCamposDadosCompra()
 
-           carrinho.validarCamposValorProduto()  
+          carrinho.validarCamposValorProduto()  
         
           cy.contains('Moletom "Testar é o único lugar onde falhar é realmente uma vitória!"').should('be.visible')
           cy.url().should('eq', 'http://localhost:3000/cart.html')
