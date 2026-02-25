@@ -42,6 +42,10 @@ class Carrinho{
         cy.get(el.ircheckout).click()
     }
 
+    validarMensagemCarrinhoVazio(){
+      return cy.get(el.validarMensagemCarrinhoVazio)
+    }
+
 }
 
 export default new Carrinho()

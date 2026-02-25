@@ -5,15 +5,21 @@ Funcionalidade: Adicionar Produto ao Carrinho
   Quero adicionar produtos ao carrinho
   Para revisar os dados antes da compra
       
+Funcionalidade: Gerenciamento do Carrinho de Compras
+
   Cenário: Adicionar produto ao carrinho com sucesso
     Dado que estou na página inicial da loja
-    Quando adiciono o produto "Moletom com capuz Na minha máquina funciona" com quantidade "1"
-    E acesso o carrinho
-    Então devo visualizar o nome do produto "Moletom com capuz Na minha máquina funciona"
-    E devo visualizar a quantidade "1"
-    E devo visualizar o valor unitário "R$59,00"
-    E devo visualizar o valor do frete "R$10,00"
-    E devo visualizar o valor total "R$69,00"
+    Quando adiciono o produto "Na minha máquina funciona" ao carrinho
+    E acesso a página do carrinho
+    Então devo visualizar os detalhes do produto e os cálculos corretos:
+      | produto      | Moletom com capuz "Na minha máquina funciona" |
+      | preco        | Preço: R$59.00                                |
+      | quantidade   | Quantidade: 1                                 |
+      | total_item   | Total: R$59.00                                |
+      | total_prod   | Valor total do(s) Produto(s): R$59.00         |
+      | frete        | Frete: R$19.90                                |
+      | total_final  | Valor total + Frete fixo: R$78.90             |
+    E a URL deve ser "http://localhost:3000/cart.html"
 
 
  Esquema do Cenário: Adicionar múltiplos produtos ao carrinho

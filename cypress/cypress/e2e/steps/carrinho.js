@@ -3,56 +3,46 @@ import home from "../pages/home"
 import menu from "../pages/menu"
 
 
-describe('Adicionar produto no carrinho',()=>{
+Given("que estou na página inicial da loja", () => {
+  menu.visitarHomePage();
+});
 
-        beforeEach(()=>{
+When("adiciono o produto {string} ao carrinho", (nomeProduto) => { 
+  home.clickBtnAdicionarCarrinho();
+});
 
-          menu.visitarHomePage()
-                  
-        }   
-    )
+When("acesso a página do carrinho", () => {
+  menu.clicarLinkCarrinho();
+});
 
-    it.only('veriifcar produto no carrinhom',()=>{        
-      
-         home.clickBtnAdicionarCarrinho()
+Then("devo visualizar os detalhes do produto e os cálculos corretos:", (dataTable) => {
+  const dados = dataTable.rowsHash();
 
-         menu.clicarLinkCarrinho()          
-                   
-         carrinho.campoNomeProduto()
-            .should('have.text','Moletom com capuz "Na minha máquina funciona"')
+  carrinho.campoNomeProduto().should('have.text', dados.produto);
+  carrinho.campoPreco().should('have.text', dados.preco);
+  carrinho.campoQuantidade().should('have.text', dados.quantidade);
+  carrinho.campoTotal().should('have.text', dados.total_item);
+  carrinho.campoValorTotalProduto().should('have.text', dados.total_prod);
+  carrinho.campoFrete().should('have.text', dados.frete);
+  carrinho.campoValorTotalFrete().should('have.text', dados.total_final);
+});
 
-         carrinho.campoPreco()
-            .should('have.text','Preço: R$59.00')
-         
-         carrinho.campoQuantidade()
-            .should('have.text','Quantidade: 1')  
-            
-         carrinho.campoTotal()
-            .should('have.text','Total: R$59.00')
-            
-         carrinho.campoValorTotalProduto()
-            .should('have.text','Valor total do(s) Produto(s): R$59.00')
+Then("devo visualizar o valor total do produto {string}", (totalEsperado) => {
+    carrinho.campoTotal().should('contain.text', totalEsperado);
+});
 
-         carrinho.campoFrete()
-            .should('have.text','Frete: R$19.90')
-            
-         carrinho.campoValorTotalFrete()
-            .should('have.text','Valor total + Frete fixo: R$78.90')   
-        
-         cy.url().should('eq', 'http://localhost:3000/cart.html')
+Then("devo visualizar {string} com a im=ncremetacao correta", (valorContador) => {
+    home.verificarContadorCarrinho(valorContador);
+});
 
+Then("devo poder remover o produto do carrinho", () => {
+    carrinho.removerItem();
+});
 
-         
+Then("devo poder visualizar o {string}", (mensagemEsperada) => {
+    carrinho.validarMensagemCarrinhoVazio(mensagemEsperada);
+});
 
-         carrinho.clickRemoverCompra() 
-
-          //cy.screenshot('Carrinho com produtos')
-    })     
-    
-
-     it('Adicionar produto ao carrinho remover produtos',()=>{                 
-                                    
-       //  cy.screenshot('Carrinho sem produtos')
-       //cy.get(':nth-child(1) > .nav-link').click()
-    })
-})
+Then("a URL deve ser {string}", (urlEsperada) => {
+  cy.url().should('eq', urlEsperada);
+});

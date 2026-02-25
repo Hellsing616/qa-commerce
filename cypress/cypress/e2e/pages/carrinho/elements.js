@@ -7,7 +7,8 @@ export const elements ={
     txtvalorTotal:  '#cart-list > :nth-child(1) > :nth-child(4)',
     txtValorTotalProduto: '#total-products',
     txtFrete: '#shipping-fee',
-    txtValorTotalFrete: '#total-with-shipping'
+    txtValorTotalFrete: '#total-with-shipping',
+    validarMensagemCarrinhoVazio: '#cart-empty-message'
 
 }
 
