@@ -1,7 +1,12 @@
 const { defineConfig } = require("cypress");
+const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
+const addCucumberPreprocessorPlugin =
+  require("@badeball/cypress-cucumber-preprocessor").addCucumberPreprocessorPlugin;
+const createEsbuildPlugin =
+  require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin;
 
 module.exports = defineConfig({
-  allowCypressEnv: false,
+  
   reporter: 'cypress-multi-reporters',
   reporterOptions:{
     reporterEnabled: 'cypress-mochawesome-reporter, mocha-junit-reporter',
@@ -17,10 +22,29 @@ module.exports = defineConfig({
     }
   },
   chromeWebSecurity: false,
+
   e2e: {
     baseUrl: 'http://localhost:3000/',
-    setupNodeEvents(on, config) {
-      require('cypress-mochawesome-reporter/plugin')(on)
+
+    // 👇 importante para o cucumber
+    specPattern: "**/*.feature",
+
+    async setupNodeEvents(on, config) {
+      
+      // Cucumber
+      await addCucumberPreprocessorPlugin(on, config);
+
+      on(
+        "file:preprocessor",
+        createBundler({
+          plugins: [createEsbuildPlugin(config)],
+        })
+      );
+
+      // Mochawesome
+      require('cypress-mochawesome-reporter/plugin')(on);
+
+      return config;
     },
   },
 });
