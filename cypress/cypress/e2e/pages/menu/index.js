@@ -23,6 +23,10 @@ class Menu{
           .should('be.visible')
           .and('have.text',1)
     }
+
+    adicionarProduto(itemNome){
+        cy.get(el.addItemProduto(itemNome)).click()
+    }
 }
 
 

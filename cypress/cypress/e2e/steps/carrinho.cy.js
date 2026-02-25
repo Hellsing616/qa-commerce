@@ -41,6 +41,9 @@ describe('Adicionar produto no carrinho',()=>{
         
          cy.url().should('eq', 'http://localhost:3000/cart.html')
 
+
+         
+
          carrinho.clickRemoverCompra() 
 
           //cy.screenshot('Carrinho com produtos')
