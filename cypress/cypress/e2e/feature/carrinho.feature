@@ -50,7 +50,6 @@ Funcionalidade: Adicionar Produto ao Carrinho
     | Moletom com capuz "Se você acha que nada é impossível..."   | 1          | R$59.00       | R$59.00      |      3      |
 
 
-
   Esquema do Cenário: Validar cálculos e frete no carrinho de compras
 
     Dado que estou na página inicial da loja
