@@ -1,4 +1,4 @@
-Featur:; Login
+Feature: Login
 
 Scenario: Login valido
 Given eu estou pagania de Login

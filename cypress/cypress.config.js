@@ -27,7 +27,7 @@ module.exports = defineConfig({
     baseUrl: 'http://localhost:3000/',
 
     // 👇 importante para o cucumber
-    specPattern: "**/*.feature",
+    specPattern: "cypress/e2e/feature/*.feature",
 
     async setupNodeEvents(on, config) {
       
